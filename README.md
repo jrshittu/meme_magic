@@ -178,7 +178,7 @@ Gui(page).run(debug=True)
 
 ## Bonus Tips: Improve the Layout
 ![meme magic](https://github.com/jrshittu/build_with_taipy/assets/110542235/6a494f75-6134-49e5-a0c3-5282a7337f6a)
-
+Define the layout of the user interface for the Meme Generator app. Now we have two columns: a sidebar with a width of 300 pixels, and a main content area.
 
 ```python
 page="""
@@ -198,3 +198,4 @@ Bottom Text: <|{bottom_text}|input|><br />
 |>
 """
 ```
+### Hosting on Taipy Cloud
