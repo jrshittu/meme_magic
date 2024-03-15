@@ -200,4 +200,6 @@ Bottom Text: <|{bottom_text}|input|><br />
 """
 ```
 ### Hosting on Taipy Cloud
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ECdnf4PA1xA/0.jpg)](https://www.youtube.com/watch?v=ECdnf4PA1xA)
+[![Now in Android: 55]          // Title
+(https://i.ytimg.com/vi/Hc79sDi3f0U/maxresdefault.jpg)] // Thumbnail
+(https://www.youtube.com/watch?v=Hc79sDi3f0U "Now in Android: 55")
