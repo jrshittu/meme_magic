@@ -200,4 +200,4 @@ Bottom Text: <|{bottom_text}|input|><br />
 """
 ```
 ### Hosting on Taipy Cloud
-Navigate to [Taipy Cloud](https://cloud.taipy.io/) to create a free account.
+<video src="https://youtu.be/ECdnf4PA1xA" width="320" height="240" controls></video>
