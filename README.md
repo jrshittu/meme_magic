@@ -200,4 +200,4 @@ Bottom Text: <|{bottom_text}|input|><br />
 """
 ```
 ### Hosting on Taipy Cloud
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ECdnf4PA1xA?si=A8pLc7b6pKU8lya_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Taipy Cloud](https://img.youtube.com/vi/ECdnf4PA1xA&t=1s.jpg)](https://www.youtube.com/watch?v=ECdnf4PA1xA&t=1s)
