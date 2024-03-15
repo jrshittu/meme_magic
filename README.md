@@ -1,6 +1,6 @@
 ## Meme Magic 😍: Building a Custom Meme Generator with Python
 
-In this article, we'll create a Meme Generator app, a web-based tool for creating custom memes. The app is built using the Taipy GUI library, which provides a simple and intuitive way to create interactive web interfaces. We'll explore the app's features and functionality, as well as the underlying code and design principles. Whether you're a seasoned developer or just getting started with Python and web development, this article will provide a useful introduction to the Meme Generator app and the Taipy GUI library. So let's get started!
+In this article, we'll create a Meme Generator app, a web-based tool for creating custom memes. The app is built using the Taipy GUI library, which provides a simple and intuitive way to create interactive web interfaces. We'll explore the app's features and functionality, as well as the underlying code and design principles. let's get started!
 
 ![meme_gen](https://github.com/jrshittu/build_with_taipy/assets/110542235/baa87481-757d-4eb1-b8cb-e7106f775cc8)
 
