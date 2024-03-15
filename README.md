@@ -202,8 +202,6 @@ Bottom Text: <|{bottom_text}|input|><br />
 """
 ```
 ### Hosting on Taipy Cloud
-Navigate to [Taipy Cloud](https://cloud.taipy.io/) and create a free account.
+Navigate to [Taipy Cloud](https://cloud.taipy.io/) and create a free account. Then follow the instructions in the clip below to host your app.
 
 https://github.com/jrshittu/meme_magic/assets/110542235/8e81eee7-026d-46aa-89e0-8f69e3667899
-
-Click [here](https://www.youtube.com/watch?v=ECdnf4PA1xA&t=1s) to watch.
