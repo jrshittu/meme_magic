@@ -200,4 +200,4 @@ Bottom Text: <|{bottom_text}|input|><br />
 """
 ```
 ### Hosting on Taipy Cloud
-[![Taipy Cloud](https://img.youtube.com/vi/ECdnf4PA1xA&t=1s.jpg)](https://www.youtube.com/watch?v=ECdnf4PA1xA&t=1s)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ECdnf4PA1xA/0.jpg)](https://www.youtube.com/watch?v=ECdnf4PA1xA)
