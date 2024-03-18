@@ -4,26 +4,75 @@ In this article, we'll create a Meme Generator app, a web-based tool for creatin
 
 ![meme_gen](https://github.com/jrshittu/build_with_taipy/assets/110542235/baa87481-757d-4eb1-b8cb-e7106f775cc8)
 
-Step 1: Import the required libraries
+## Contents
+[Say Hello Taipy](#hi)
+
+[Create a meme genrator with TaipyGU](#create)
+
+[Bonus Tips: Improve the Layout](#bonus)
+
+[Hosting on Taipy Cloud](#host)
+
+[Conclusion](#conc)
+
+
+
+## Say Hello Taipy! <a name="hi"></a>
+Taipy is a Python open-source library that makes it simple to create data-driven web applications. It takes care of both the visible part(Frontend) and the behind-the-scenes(Backend) operations. Its goal is to speed up the process of developing applications, from the early design stages to having a fully functional product ready for use.
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/k24u6ko4tkjffice6thz.gif)
+
+Source: [Taipy Docs](https://docs.taipy.io/en/latest/)
+
+**Requirement:** Python 3.8 or later on Linux, Windows, and Mac. 
+
+**Installing Taipy:** Open up a terminal and run the following command, which will install Taipy with all its dependencies.
+
+```bash
+pip install taipy
+```
+We're set, let say hello to Taipy...
+
+```python
+# import the library
+from taipy import Gui
+
+hello = "# Hello Taipy!" 
+
+# run the gui
+Gui(hello).run()
+```
+
+Save the code as a Python file: e.g., `hi_taipy.py`. 
+Run the code and wait for the client link `http://127.0.0.1:5000` to display and pop up in your browser. 
+You can change the port if you want to run multiple servers at the same time with `Gui(...).run(port=xxxx)`.
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6w2h2jryumg8kumid3ms.PNG)
+
+
+## Create a meme generator with TaipyGU: <a name="create"></a>
+Since we are familiar with Taipy, Let's get our hands dirty and build our meme generator. 
+
+**Step 1:** Import the required libraries
 ```python
 # Import taipy library
 from taipy.gui import Gui, notify
 import requests
 import urllib
 ```
-Step 2: Navigate to [imgflip](https://imgflip.com/) to create an account, set the username and password. After then navigate to [Google](www.google.com) to search for `my user agent`, copy and set the variables.
+**Step 2:** Navigate to [imgflip](https://imgflip.com/) to create an account, set the username and password. After then navigate to [Google](www.google.com) to search for `my user agent`, copy and set the variables.
 ```python
 username = "AbideenTunde"
 password = "2nhnUFx@bmbs4Jf"
 userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
 ```
-Step 3: Fetch the available meme templates from the Imgflip API using a GET request and store the relevant information (name, URL, and ID) in a list of dictionaries called 'images'
+**Step 3:** Fetch the available meme templates from the Imgflip API using a GET request and store the relevant information (name, URL, and ID) in a list of dictionaries called 'images'
 ```python
 # Fetch the available memes
 data = requests.get('https://api.imgflip.com/get_memes').json()['data']['memes']
 images = [{'name':image['name'],'url':image['url'],'id':image['id']} for image in data]
 ```
-Step 4: Initialize empty variables for storing the selected meme template, top and bottom text, and the generated meme
+**Step 4:** Initialize empty variables for storing the selected meme template, top and bottom text, and the generated meme
 ```python
 meme_template = ""
 top_text = ""
@@ -31,11 +80,11 @@ bottom_text = ""
 meme_download = None
 meme_image = None
 ```
-Step 5: Create a list of tuples called 'memes' containing the index and name of each meme template for use in the dropdown selector
+**Step 5**: Create a list of tuples called 'memes' containing the index and name of each meme template for use in the dropdown selector
 ```python
 memes = [(str(ctr), img['name']) for ctr, img in enumerate(images, start=1)]
 ```
-Step 6: Define a function called 'generate\_meme' that takes a 'state' object as an argument, which contains the user input for the meme template, top and bottom text. The function uses the Imgflip API to generate a meme using the provided inputs and stores the generated meme URL and image in the 'meme\_download' and 'meme\_image' variables respectively.
+**Step 6**: Define a function called 'generate\_meme' that takes a 'state' object as an argument, which contains the user input for the meme template, top and bottom text. The function uses the Imgflip API to generate a meme using the provided inputs and stores the generated meme URL and image in the 'meme\_download' and 'meme\_image' variables respectively.
 ```python
 def generate_meme(state):
     top_text = state.top_text.strip()
@@ -69,7 +118,7 @@ def generate_meme(state):
     else:
         notify(state, 'error', f'Failed to generate meme: {response.get("error_message", "Unknown error")}')
 ```
-Step 7: Define a function called 'download\_meme' that takes the 'state' object as an argument and downloads the generated meme image from the 'meme\_download' URL using the urllib library.
+**Step 7:** Define a function called 'download\_meme' that takes the 'state' object as an argument and downloads the generated meme image from the 'meme\_download' URL using the urllib library.
 ```python
 def download_meme(state):
     if state.meme_download:
@@ -79,7 +128,7 @@ def download_meme(state):
         opener.retrieve(state.meme_download, file_path)
         return file_path
 ```
-Step 8: Define the Taipy GUI page using the page string, which contains the user interface elements such as the dropdown selector, input fields, and buttons. The page string also specifies the event handlers for each UI element, such as the 'on\_action' event for the 'Generate Meme' button, which calls the 'generate\_meme' function.
+**Step 8:** Define the Taipy GUI page using the page string, which contains the user interface elements such as the dropdown selector, input fields, and buttons. The page string also specifies the event handlers for each UI element, such as the 'on\_action' event for the 'Generate Meme' button, which calls the 'generate\_meme' function.
 ```python
 # Definition of the page
 page = """
@@ -92,7 +141,7 @@ Bottom Text: <|{bottom_text}|input|><br />
 <|{meme_image}|image|active={meme_download is not None}|>
 """
 ```
-Step 9: Run the Taipy GUI application using the 'Gui' object and passing the 'page' string to its constructor. The 'run' method starts the application.
+**Step 9:** Run the Taipy GUI application using the 'Gui' object and passing the 'page' string to its constructor. The 'run' method starts the application.
 ```python
 Gui(page).run(debug=True)
 ```
@@ -176,7 +225,7 @@ Bottom Text: <|{bottom_text}|input|><br />
 Gui(page).run(debug=True)
 ```
 
-## Bonus Tips: Improve the Layout
+## Bonus Tips: Improve the Layout <a name="bonus"></a>
 ![meme magic](https://github.com/jrshittu/build_with_taipy/assets/110542235/6a494f75-6134-49e5-a0c3-5282a7337f6a)
 
 Click [here](https://tunde.taipy.cloud/) to try the app.
@@ -201,7 +250,10 @@ Bottom Text: <|{bottom_text}|input|><br />
 |>
 """
 ```
-### Hosting on Taipy Cloud
+## Hosting on Taipy Cloud <a name="host"></a>
 Navigate to [Taipy Cloud](https://cloud.taipy.io/) and create a free account. Then follow the instructions in the clip below to host your app.
 
 https://github.com/jrshittu/meme_magic/assets/110542235/8e81eee7-026d-46aa-89e0-8f69e3667899
+
+## Conclusion <a name="conc"></a>
+In this article, we learned how to build a custom meme generator using Python and the Taipy GUI library. We explored the features and functionality of the app and walked through the code and design principles. With Taipy, we were able to create an interactive web interface for our meme generator that is both simple and intuitive. We also discussed how to improve the layout of the app and host it on Taipy Cloud. Overall, Taipy provides a powerful and easy-to-use tool for building data-driven web applications.
