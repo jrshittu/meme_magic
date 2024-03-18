@@ -87,35 +87,46 @@ memes = [(str(ctr), img['name']) for ctr, img in enumerate(images, start=1)]
 **Step 6**: Define a function called 'generate\_meme' that takes a 'state' object as an argument, which contains the user input for the meme template, top and bottom text. The function uses the Imgflip API to generate a meme using the provided inputs and stores the generated meme URL and image in the 'meme\_download' and 'meme\_image' variables respectively.
 ```python
 def generate_meme(state):
+    # Get the top and bottom text entered by the user and remove any leading/trailing whitespace
     top_text = state.top_text.strip()
     bottom_text = state.bottom_text.strip()
 
+    # Check if both top and bottom text are specified
     if not top_text or not bottom_text:
+        # Notify the user that both top and bottom text must be specified
         notify(state, 'error', 'Both top and bottom text must be specified.')
+        # Return from the function without generating a meme
         return
 
+    # Set up the API endpoint URL for generating a meme
     URL = 'https://api.imgflip.com/caption_image'
+
+    # Set up the parameters for the API request
     params = {
-        'username': username,
-        'password': password,
-        'template_id': images[int(state.meme_template[0]) - 1]['id'],
-        'text0': top_text,
-        'text1': bottom_text
+        'username': username,    # The username for the Imgflip account
+        'password': password,    # The password for the Imgflip account
+        'template_id': images[int(state.meme_template[0]) - 1]['id'],    # The ID of the selected meme template
+        'text0': top_text,        # The top text entered by the user
+        'text1': bottom_text     # The bottom text entered by the user
     }
 
+    # Send a POST request to the API endpoint with the specified parameters
     response = requests.request('POST', URL, params=params).json()
 
+    # Check if the API response contains a 'data' key, indicating that the meme was successfully generated
     if 'data' in response:
+        # Notify the user that the meme was successfully generated
         notify(state, 'success', f'meme successfully generated!')
 
-        # Save the meme URL
+        # Save the URL of the generated meme
         meme_url = response['data']['url']
         state.meme_download = meme_url
 
-        # Display the meme image
+        # Display the generated meme image
         response = requests.get(meme_url)
         state.meme_image = response.content
     else:
+        # Notify the user that the meme generation failed and provide an error message if available
         notify(state, 'error', f'Failed to generate meme: {response.get("error_message", "Unknown error")}')
 ```
 **Step 7:** Define a function called 'download\_meme' that takes the 'state' object as an argument and downloads the generated meme image from the 'meme\_download' URL using the urllib library.
