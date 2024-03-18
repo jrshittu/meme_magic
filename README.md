@@ -50,7 +50,7 @@ You can change the port if you want to run multiple servers at the same time wit
 ![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6w2h2jryumg8kumid3ms.PNG)
 
 
-## Create a meme generator with TaipyGU: <a name="create"></a>
+## Create a meme generator with TaipyGUI: <a name="create"></a>
 Since we are familiar with Taipy, Let's get our hands dirty and build our meme generator. 
 
 **Step 1:** Import the required libraries
