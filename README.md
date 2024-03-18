@@ -7,7 +7,7 @@ In this article, we'll create a Meme Generator app, a web-based tool for creatin
 ## Contents
 [Say Hello Taipy](#hi)
 
-[Create a meme generator with TaipyGU](#create)
+[Create a meme generator with TaipyGUI](#create)
 
 [Bonus Tips: Improve the Layout](#bonus)
 
