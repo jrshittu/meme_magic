@@ -37,10 +37,10 @@ We're set, let say hello to Taipy...
 # import the library
 from taipy import Gui
 
-hello = "# Hello Taipy!" 
+page = "# Hello Taipy!" 
 
 # run the gui
-Gui(hello).run()
+Gui(page).run()
 ```
 
 Save the code as a Python file: e.g., `hi_taipy.py`. 
