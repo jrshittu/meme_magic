@@ -60,11 +60,11 @@ from taipy.gui import Gui, notify
 import requests
 import urllib
 ```
-**Step 2:** Navigate to [imgflip](https://imgflip.com/) to create an account, set the username and password. After then navigate to [Google](www.google.com) to search for `my user agent`, copy and set the variables.
+**Step 2:** Navigate to [imgflip](https://imgflip.com/) to create an account, set the username and password. After then navigate to [Google](www.google.com) to search for `my user agent`, copy and set your username and password from [imgflip](https://imgflip.com/), then copy and paste your userAgent from the google search result.
 ```python
-username = "AbideenTunde"
-password = "2nhnUFx@bmbs4Jf"
-userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+username = "your_own_username" 
+password = "your_own_password"
+userAgent = "your_own_userAgent"
 ```
 **Step 3:** Fetch the available meme templates from the Imgflip API using a GET request and store the relevant information (name, URL, and ID) in a list of dictionaries called 'images'
 ```python
