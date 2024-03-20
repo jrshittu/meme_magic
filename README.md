@@ -266,7 +266,7 @@ Navigate to [Taipy Cloud](https://cloud.taipy.io/) and create a free account.
 
 https://github.com/jrshittu/meme_magic/assets/110542235/8e81eee7-026d-46aa-89e0-8f69e3667899
 
-To deploy an app to [Taipy Cloud](https://cloud.taipy.io/), follow these steps:
+To deploy the app to [Taipy Cloud](https://cloud.taipy.io/), follow these steps:
 
 1. Connect to Taipy Cloud and sign in to your account.
 2. Click on the "Add Machine" button to create a new machine. Fill in the required fields, such as the machine name and the desired size.
