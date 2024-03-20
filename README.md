@@ -262,9 +262,18 @@ Bottom Text: <|{bottom_text}|input|><br />
 """
 ```
 ## Hosting on Taipy Cloud <a name="host"></a>
-Navigate to [Taipy Cloud](https://cloud.taipy.io/) and create a free account. Then follow the instructions in the clip below to host your app.
+Navigate to [Taipy Cloud](https://cloud.taipy.io/) and create a free account.
 
 https://github.com/jrshittu/meme_magic/assets/110542235/8e81eee7-026d-46aa-89e0-8f69e3667899
+
+To deploy an app to [Taipy Cloud](https://cloud.taipy.io/), follow these steps:
+
+1. Connect to Taipy Cloud and sign in to your account.
+2. Click on the "Add Machine" button to create a new machine. Fill in the required fields, such as the machine name and the desired size.
+3. Select the machine that you just created and click on the "Add App" button to create a new app.
+4. Zip the `main.py` and `requirements.txt` files for your app and upload the zip file to the "App Files" field.
+5. Fill in the other required fields for the app, such as the app name and the entry point.
+6. Press the "Deploy App" button to deploy the app to Taipy Cloud.
 
 ## Conclusion <a name="conc"></a>
 In this article, we learned how to build a custom meme generator using Python and the Taipy GUI library. We explored the features and functionality of the app and walked through the code and design principles. With Taipy, we were able to create an interactive web interface for our meme generator that is both simple and intuitive. We also discussed how to improve the layout of the app and host it on Taipy Cloud. Overall, Taipy provides a powerful and easy-to-use tool for building data-driven web applications.
